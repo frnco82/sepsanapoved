@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Napoved SEPSE pri novorojenčkih</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+	<h1>Napoved SEPSE pri novorojenčkih</h1>
+     <h5> Vnesi vrednosti:</h5>
+</nav>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="1" placeholder="CRP (za decimalko uporabite piko)" required="required" />
+		<input type="text" name="2" placeholder="Paličasti" required="required" />
+		<input type="text" name="3" placeholder="Starost ob bolezni (v dnevih)" required="required" />
+		<input type="text" name="4" placeholder="Limfociti(za decimalko uporabite piko)" required="required" />
+		<input type="text" name="5" placeholder="PCT(za decimalko uporabite piko)" required="required" />
+		<input type="text" name="6" placeholder="Levkociti (za decimalko uporabite piko)" required="required" />		
+    	<input type="text" name="7" placeholder="Trombociti" required="required" />
+    	<input type="text" name="8" placeholder="Porodna teža (v g)" required="required" />
+    	<input type="text" name="9" placeholder="Segmentirani(za decimalko uporabite piko)" required="required" />
+    	<input type="text" name="10" placeholder="Obseg glave (v cm)" required="required" />
+    	<input type="text" name="11" placeholder="GS (v tednih)" required="required" />
+
+
+        <button type="submit" class="btn">Izračunaj</button>
+    </form>
+
+   <br>
+   <br>
+   {{ pred }}
+
+   <br>
+   <br>
+   <br>
+   <br>
+	<footer>
+	<div>
+	<p style="text-align:left; font-size:60%;">&copy; Franci Čuček (franci@analyst.si)</p>
+
+	</div>
+	</footer>
+
+ </div>
+
+</body>
+</html>
